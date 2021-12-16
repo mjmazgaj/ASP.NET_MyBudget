@@ -1,0 +1,48 @@
+﻿@model IEnumerable<MyBudget.Models.Expense>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Lista wydatków</h1>
+
+<p>
+    <a asp-action="Create">Dodaj nowy wydatek</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NameExp)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ValueExp)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CategoryName)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NameExp)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ValueExp)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CategoryName)
+            </td>
+            <td>
+                @Html.ActionLink("Edytuj", "Edit", new { id = item.IdExp })
+                @Html.ActionLink("Szczegóły", "Details", new { id = item.IdExp })
+                @Html.ActionLink("Usuń", "Delete", new { id = item.IdExp })
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

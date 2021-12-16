@@ -1,0 +1,42 @@
+﻿@model MyBudget.Models.Expense
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edytuj</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="NameExp" class="control-label"></label>
+                <input asp-for="NameExp" class="form-control" />
+                <span asp-validation-for="NameExp" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ValueExp" class="control-label"></label>
+                <input asp-for="ValueExp" class="form-control" />
+                <span asp-validation-for="ValueExp" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DateExp" class="control-label"></label>
+                <input asp-for="DateExp" class="form-control" />
+                <span asp-validation-for="DateExp" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Zapisz" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Wróć do listy wydatków</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

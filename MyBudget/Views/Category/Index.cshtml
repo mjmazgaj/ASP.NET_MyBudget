@@ -1,0 +1,39 @@
+﻿@model IEnumerable<MyBudget.Models.Category>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Lista kategorii</h1>
+
+<p>
+    <a asp-action="Create">Dodaj kategorię</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.IdCat)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NameCat)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdCat)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NameCat)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.IdCat})
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
