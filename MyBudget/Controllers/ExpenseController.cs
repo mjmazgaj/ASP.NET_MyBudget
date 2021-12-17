@@ -53,6 +53,7 @@ namespace MyBudget.Controllers
         // GET: ExpenseController/Edit/5
         public ActionResult Edit(int id)
         {
+            ViewData["Categories"] = _expenseRepository.GetCategories();
             return View(_expenseRepository.Get(id));
         }
 
@@ -61,6 +62,10 @@ namespace MyBudget.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, Expense expense)
         {
+            var idCat = Convert.ToInt32(Request.Form["Categories"]);
+            expense.IdCat = idCat;
+            expense.Category = _expenseRepository.GetCategory(idCat);
+
             _expenseRepository.Update(id, expense);
             return RedirectToAction(nameof(Index));
         }

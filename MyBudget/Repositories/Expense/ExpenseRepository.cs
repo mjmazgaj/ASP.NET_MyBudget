@@ -38,7 +38,8 @@ namespace MyBudget.Repositories
             {
                 result.NameExp = expense.NameExp;
                 result.ValueExp = expense.ValueExp;
-                result.DateExp = expense.DateExp;
+                result.DescriptionExp = expense.DescriptionExp;
+                result.Category = expense.Category;
 
                 _context.SaveChanges();
             }

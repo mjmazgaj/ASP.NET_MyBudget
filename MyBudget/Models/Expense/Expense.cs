@@ -24,8 +24,9 @@ namespace MyBudget.Models
         public decimal ValueExp { get; set; }
         [DisplayName("Data")]
         public DateTime DateExp { get; set; }
-        [DisplayName("Kategoria")]
         public int IdCat { get; set; }
+        [DisplayName("Opis")]
+        public string DescriptionExp { get; set; }
 
         [ForeignKey("IdCat")]
         public Category Category { get; set; }

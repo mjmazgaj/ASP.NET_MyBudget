@@ -8,9 +8,11 @@ namespace MyBudget.Models
 
     public class Category
     {
+
         [Key]
+        [DisplayName("ID")]
         public int IdCat { get; set; }
-        [DisplayName("Nazwa")]
+        [DisplayName("Kategoria")]
         [Required(ErrorMessage = "Podanie nazwy jest wymagane.")]
         [MaxLength(50)]
         public string NameCat { get; set; }

@@ -7,7 +7,7 @@
 <h1>Lista wydatków</h1>
 
 <p>
-    <a asp-action="Create">Dodaj nowy wydatek</a>
+    <a asp-action="Create" class="btn btn-outline-secondary">Dodaj nowy wydatek</a>
 </p>
 <table class="table">
     <thead>
@@ -38,9 +38,9 @@
                 @Html.DisplayFor(modelItem => item.Category.NameCat)
             </td>
             <td>
-                @Html.ActionLink("Edytuj", "Edit", new { id = item.IdExp })
-                @Html.ActionLink("Szczegóły", "Details", new { id = item.IdExp })
-                @Html.ActionLink("Usuń", "Delete", new { id = item.IdExp })
+                @Html.ActionLink("Edytuj", "Edit", new { id = item.IdExp }, new {@class= "btn btn-outline-secondary" })
+                @Html.ActionLink("Szczegóły", "Details", new { id = item.IdExp }, new { @class = "btn btn-outline-secondary" })
+                @Html.ActionLink("Usuń", "Delete", new { id = item.IdExp }, new { @class = "btn btn-outline-secondary" })
             </td>
         </tr>
         }
