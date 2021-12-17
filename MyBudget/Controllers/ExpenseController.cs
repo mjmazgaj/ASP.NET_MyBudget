@@ -42,6 +42,9 @@ namespace MyBudget.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(Expense expense)
         {
+            var idCat = Convert.ToInt32(Request.Form["Categories"]);
+            expense.IdCat = idCat;
+            expense.Category = _expenseRepository.GetCategory(idCat);
 
             _expenseRepository.Add(expense);
             return RedirectToAction(nameof(Index));

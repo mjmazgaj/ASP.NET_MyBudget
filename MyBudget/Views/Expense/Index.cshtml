@@ -19,7 +19,7 @@
                 @Html.DisplayNameFor(model => model.ValueExp)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.CategoryName)
+                @Html.DisplayNameFor(model => model.Category.NameCat)
             </th>
             <th></th>
         </tr>
@@ -35,7 +35,7 @@
                 @Html.DisplayFor(modelItem => item.ValueExp)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.CategoryName)
+                @Html.DisplayFor(modelItem => item.Category.NameCat)
             </td>
             <td>
                 @Html.ActionLink("Edytuj", "Edit", new { id = item.IdExp })

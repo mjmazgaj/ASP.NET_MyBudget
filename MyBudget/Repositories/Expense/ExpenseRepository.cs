@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 using MyBudget.Models;
 
 namespace MyBudget.Repositories
@@ -21,17 +22,7 @@ namespace MyBudget.Repositories
 
         IQueryable<Expense> IExpenseRepository.GetAll()
         {
-            var expenses = from exp in _context.Expenses
-                           join cat in _context.Categories on exp.Category equals cat.IdCat
-                           select new Expense
-                           {
-                               IdExp = exp.IdExp,
-                               DateExp = exp.DateExp,
-                               NameExp = exp.NameExp,
-                               ValueExp = exp.ValueExp,
-                               CategoryName = cat.NameCat,
-                           };
-            
+            var expenses =_context.Expenses.Include("Category");
             return expenses;
         }
         public void Add(Expense expense)
@@ -72,6 +63,13 @@ namespace MyBudget.Repositories
                                 }).ToList();
 
             return listOfCategories;
+        }
+
+        Category IExpenseRepository.GetCategory(int idCat)
+        {
+            Category category = _context.Categories.FirstOrDefault(x => x.IdCat == idCat);
+
+            return category;
         }
     }
 }

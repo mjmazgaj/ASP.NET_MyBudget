@@ -9,11 +9,13 @@ namespace MyBudget.Repositories
 {
     public interface IExpenseRepository
     {
+
         Expense Get(int idExp);
         IQueryable<Expense> GetAll();
         void Add(Expense expense);
         void Update(int idExp, Expense expense);
         void Delete(int idExp);
         List<SelectListItem> GetCategories();
+        Category GetCategory(int idCat);
     }
 }

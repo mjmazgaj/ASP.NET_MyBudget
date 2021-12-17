@@ -25,7 +25,9 @@ namespace MyBudget.Models
         [DisplayName("Data")]
         public DateTime DateExp { get; set; }
         [DisplayName("Kategoria")]
-        public int Category { get; set; }
-        public string CategoryName { get; set; }
+        public int IdCat { get; set; }
+
+        [ForeignKey("IdCat")]
+        public Category Category { get; set; }
     }
 }
